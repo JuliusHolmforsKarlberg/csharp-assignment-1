@@ -6,18 +6,39 @@ using System.Threading.Tasks;
 
 namespace AddressBook.Services
 {
-    internal static class FileManager
+    public static class FileManager
     {
         public static void Save(string filePath, string text)
         {
-            using var sw = new StreamWriter(filePath);
-            sw.WriteLine(text);
+            try
+            {
+                using var sw = new StreamWriter(filePath);
+                sw.WriteLine(text);
+            }
+            catch
+            {
+                Console.Clear();
+                Console.WriteLine("Unable to save contact catalog");
+                Console.ReadKey();
+            }
         }
 
         public static string Read(string filePath)
         {
-            using var sr = new StreamReader(filePath);
-            return sr.ReadToEnd();
+            try
+            {
+                using var sr = new StreamReader(filePath);
+                return sr.ReadToEnd();
+            }
+            catch { }
+
+            return "[]";
         }
+
+        public static string Read()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
