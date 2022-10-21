@@ -8,6 +8,7 @@ namespace AddressBook.Services
 {
     public static class FileManager
     {
+        // This method is saving the file path
         public static void Save(string filePath, string text)
         {
             try
@@ -24,6 +25,7 @@ namespace AddressBook.Services
         }
 
         public static string Read(string filePath)
+            // This method is reading the file path
         {
             try
             {

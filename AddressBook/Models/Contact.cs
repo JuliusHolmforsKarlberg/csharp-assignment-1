@@ -8,12 +8,15 @@ namespace AddressBook.Models
 {
     public class Contact
     {
+        internal List<Contact> id;
+
+        // This method creates the contacts' structure in the address book.
         public Guid Id { get; set; } = Guid.NewGuid();
-        public string firstName { get; set; } = null!;
-        public string lastName { get; set; } = null!;
-        public string streetName { get; set; } = null!;
-        public string postalCode { get; set; } = null!;
-        public string city { get; set; } = null!;
+        public string FirstName { get; set; } = null!;
+        public string LastName { get; set; } = null!;
+        public string StreetName { get; set; } = null!;
+        public string PostalCode { get; set; } = null!;
+        public string City { get; set; } = null!;
 
         public static object FirstOrDefault(Func<object, bool> value)
         {
